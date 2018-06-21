@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Rolling the Dice</title>
+            <style>
+            .bar{background: gray;height: 20px; margin: 10px 30px; color: white;overflow: visible;}
+             .label {float: left;}
+
+             </style>
+    
+    </head>
+          <body>
+             <h1>Rolling the Dice</h1>
+                 <script>
+                 var counts = [0,0,0,0,0,0,0,0,0,0,0,0,0]; 
+                 for(var i = 1; i <= 1000; i ++) {
+                 var die1 = Math.floor(Math.random()*6) +1;
+                 var die2 = Math.floor(Math.random()*6) +1;
+                 var sum = die1+die2;
+                counts[sum]++;
+    }
+
+        for(var sum = 2; sum <=12; sum++) {
+        var newLabel = document.createElement("div");
+        newLabel.className = "label";
+        var LabelText = document.createTextNode(sum);
+        newLabel.appendChild(LabelText);
+        document.body.appendChild(newLabel);
+
+        var newDiv = document.createElement("div");
+        newDiv.className = "bar";
+        newDiv.style.width = counts[sum] + "px";
+
+        var textContent = document.createTextNode(counts[sum]);
+        newDiv.appendChild(textContent);
+        document.body.appendChild(newDiv);
+    }
+    
+                 </script>
+         </body>
+</html>
